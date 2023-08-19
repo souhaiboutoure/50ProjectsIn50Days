@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+    --body-background-color: #333;
+    --body-text-color: #222;
+    --content-background-color: #fafafa;
+    --content-p-color: #333;
+    --content-small-color: #555;
+    --circle-background-color: #ff7979;
+    --circle-btn-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    overflow-x: hidden;
+    background-color: var(--body-background-color);
+    color: var(--body-text-color);
+}
+
+.container {
+    background-color: var(--content-background-color);
+    transform-origin: top left;
+    transition: transform 0.8s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);
+}
+
+.container.show-nav .circle {
+    transform: rotate(-80deg);
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.5s;
+}
+
+nav {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    z-index: -10;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: var(--circle-btn-color);
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+
+.circle {
+    background-color: var(--circle-background-color);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.8s linear;
+}
+
+.circle button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    color: var(--circle-btn-color);
+    cursor: pointer;
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.content h1 {
+    margin: 0;
+}
+
+.content small {
+    color: var(--content-small-color);
+    font-style: italic;
+}
+
+.content p {
+    color: var(--content-p-color);
+    line-height: 1.5;
+}
+
+.content img {
+    max-width: 100%;
+}
